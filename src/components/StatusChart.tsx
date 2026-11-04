@@ -10,7 +10,7 @@ export default function StatusChart({ cases }: { cases: Case[] }) {
   return (
     <div className="card">
       <h3 className="mb-2 font-semibold">{t("status")}</h3>
-      <svg viewBox="0 0 340 160" width="100%" role="img" aria-label={t("status")} dir="ltr">
+      <svg viewBox="0 0 340 160" width="100%" role="img" aria-label={t("status")} >
         {STATUSES.map((s, i) => {
           const v = cases.filter((c) => c.status === s).length, bw = (v / total) * 210;
           return (
