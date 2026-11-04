@@ -18,7 +18,7 @@ export default function CaseMap({ cases }: { cases: Case[] }) {
         <option value="">{t("allRegions")}</option>
         {REGIONS.map((r) => <option key={r} value={r}>{t(r)}</option>)}
       </select>
-      <svg viewBox="0 0 360 200" width="100%" role="img" aria-label={t("map")} dir="ltr">
+      <svg viewBox="0 0 360 200" width="100%" role="img" aria-label={t("map")}>
         <rect width="360" height="200" rx="10" fill="var(--soft)" />
         {REGIONS.map((r) => {
           const [x, y] = CENTER[r], on = region === r;
