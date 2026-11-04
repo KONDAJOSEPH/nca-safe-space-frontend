@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #eef2f5; --surface: #fff; --ink: #12263f; --muted: #5d6f84; --line: #d5dde5;
+  --brand: #0f6f7c; --brand-ink: #fff; --soft: #dcefef;
+  --active: #2b6cb0; --ok: #237a4b; --warn: #a8660a; --bad: #b3362f;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1823; --surface: #16243a; --ink: #e6edf5; --muted: #93a4b8; --line: #2a3b54;
+    --brand: #3fb5c4; --brand-ink: #06222a; --soft: #12363f;
+    --active: #6aa8ee; --ok: #5ccb8d; --warn: #e5a443; --bad: #ef7d75;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1823; --surface: #16243a; --ink: #e6edf5; --muted: #93a4b8; --line: #2a3b54;
+  --brand: #3fb5c4; --brand-ink: #06222a; --soft: #12363f;
+  --active: #6aa8ee; --ok: #5ccb8d; --warn: #e5a443; --bad: #ef7d75;
+  color-scheme: dark;
+}
+body { @apply bg-bg text-ink antialiased; padding-bottom: env(safe-area-inset-bottom, 0px); }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+@layer components {
+  .card { @apply rounded-xl border border-line bg-surface p-4; }
+  .btn { @apply rounded-lg bg-brand px-4 py-2 font-semibold text-brand-ink disabled:opacity-50; }
+  .btn-ghost { @apply rounded-lg border border-line bg-transparent px-4 py-2 text-ink disabled:opacity-50; }
+  .input { @apply w-full rounded-lg border border-line bg-surface px-3 py-2; }
+  .label { @apply mb-1 mt-3 block text-sm font-semibold; }
+  .err { @apply mt-1 text-sm text-bad; }
+  .h1 { @apply mb-4 text-2xl font-bold; }
+  .seg { @apply flex gap-1.5; }
+  .seg > button { @apply flex-1 rounded-lg border border-line p-2; }
+  .seg > button[aria-pressed="true"] { @apply border-brand bg-soft font-semibold; }
+}
