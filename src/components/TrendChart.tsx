@@ -11,7 +11,7 @@ export default function TrendChart({ cases }: { cases: Case[] }) {
   return (
     <div className="card">
       <h3 className="mb-2 font-semibold">{t("trend")} · {t("monthly")}</h3>
-      <svg viewBox={`0 0 ${w} ${h}`} width="100%" role="img" aria-label={t("trend")} dir="ltr">
+      <svg viewBox={`0 0 ${w} ${h}`} width="100%" role="img" aria-label={t("trend")}>
         <polyline fill="none" stroke="var(--brand)" strokeWidth="2.5" points={pts.map((p) => p.join(",")).join(" ")} />
         {pts.map(([x, y], i) => (
           <g key={i}><circle cx={x} cy={y} r="3.5" fill="var(--brand)" /><text x={x} y={h - 8} textAnchor="middle" fontSize="10" fill="var(--muted)">{i + 1}</text></g>
